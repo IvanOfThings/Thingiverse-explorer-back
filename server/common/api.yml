@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: myapp
-  description: My first auto app
+  title: Thinghiverse Explorer API
+  description: This is a development test for triying several technologies as React, GraphQl, express and Typescript for Back and Front development
   version: 1.0.0
 servers:
 - url: /api/v1
@@ -12,61 +12,26 @@ tags:
 - name: Specification
   description: The swagger API specification
 paths:
-  /examples:
-    get:
-      tags:
-      - Examples
-      description: Fetch all examples
-      responses:
-        200:
-          description: Returns all examples
-          content: {}
-    post:
-      tags:
-      - Examples
-      description: Create a new example
-      requestBody:
-        description: an example
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ExampleBody'
-        required: true
-      responses:
-        200:
-          description: Returns all examples
-          content: {}
-  /examples/{id}:
-    get:
-      tags:
-      - Examples
-      parameters:
-      - name: id
-        in: path
-        description: The id of the example to retrieve
-        required: true
-        schema:
-          type: integer
-      responses:
-        200:
-          description: Return the example with the specified id
-          content: {}
-        404:
-          description: Example not found
-          content: {}
   /things/callback:
     get:
       tags:
       - Callback
-      description: Allows the user to login into the thingiverse API
+      description: Interchanges the secret and secure code for the token with thingeverse API backend service
+      parameters:
+      - name: code
+        in: query
+        description: A valid temporary code from the thingiverse Backen API (second phase code)
+        required: true
+        schema:
+          type: string
       responses:
         200:
           description: Returns the acces token to the backend in order to be able to work with the thingiverse API
           content: {}
-  /things/list/:property:
+  /things/list/{property}:
     get:
       tags:
-      - Newest
+      - Thing
       description: Allows the user to login into the thingiverse API
       parameters:
       - name: property
@@ -75,10 +40,33 @@ paths:
         required: true
         schema:
           type: string
+      - name: access_token
+        in: query
+        description: A valid Access Token for communicating with thingiverse API backend service
+        required: true
+        schema:
+          type: string
       responses:
         200:
-          description: Returns the acces token to the backend in order to be able to work with the thingiverse API
-          content: {}
+          description: Returns the list of things retrieved from thingiverse
+          content: {
+            "application/json": {}
+          }
+        400:
+          description: Wrong value for parameter property
+          content: {
+            "application/json": {}
+          }
+        404:
+          description: Some of the resources for the list were not found
+          content: {
+            "application/json": {}
+          }
+        500:
+          description: Internal server error (Unhandled error detected)
+          content: {
+            "application/json": {}
+          }
   /things/things/{id}:
     get:
       tags:
@@ -91,13 +79,28 @@ paths:
         required: true
         schema:
           type: integer
+      - name: access_token
+        in: query
+        description: A valid Access Token for communicating with thingiverse API backend service
+        required: true
+        schema:
+          type: string
       responses:
         200:
           description: Return the thing with the specified id
-          content: {}
+          content: {
+            "application/json": {}
+          }
         404:
           description: Resource not found
-          content: {}
+          content: {
+            "application/json": {}
+          }
+        500:
+          description: Internal server error (Unhandled error detected)
+          content: {
+            "application/json": {}
+          }
   /spec:
     get:
       tags:
