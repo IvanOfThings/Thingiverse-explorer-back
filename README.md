@@ -1,6 +1,6 @@
-# myapp
+# Thigiverse explorer Backend
 
-My first auto app
+This service is for its use as the Thingiverse explorer App backend
 
 ## Quick Start
 
@@ -13,8 +13,6 @@ npm install
 # run in development mode
 npm run dev
 
-# run tests
-npm run test
 ```
 
 ---
@@ -52,7 +50,7 @@ npm start
 
 ## Test It
 
-Run the Mocha unit tests
+Run the Mocha unit tests (At this time tests are not included because of the aim of the application)
 
 ```shell
 npm test
@@ -65,10 +63,10 @@ npm run test:debug
 ```
 
 ## Try It
-* Open you're browser to [http://localhost:3000](http://localhost:3000)
-* Invoke the `/examples` endpoint 
+* Open you're browser to [http://localhost:3500](http://localhost:3500)
+* Invoke the `/things` endpoint 
   ```shell
-  curl http://localhost:3000/api/v1/examples
+  curl http://localhost:3500/api/v1/things/list/newest
   ```
 
 
@@ -80,12 +78,6 @@ npm run test:debug
 npm run dev:debug
 ```
 
-#### Debug Tests
+#### Acknowledgement
 
-```
-npm run test:debug
-```
-
-#### Debug with VSCode
-
-Add these [contents](https://github.com/cdimascio/generator-express-no-stress/blob/next/assets/.vscode/launch.json) to your `.vscode/launch.json` file
+This project is based on generator-express-no-stress, thanks to Carmine DiMascio (https://github.com/cdimascio/).
