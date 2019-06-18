@@ -26,6 +26,11 @@ const typeDefs = gql`
     default_image: Image
     collect_count: Int
     like_count: Int
+    added: String
+    is_featured: String
+    description: String
+    instructions: String
+    details: String
   }
 
   type simpleImage {
