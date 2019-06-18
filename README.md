@@ -14,8 +14,10 @@ npm install
 npm run dev
 
 ```
-
 ---
+
+Lets explore the API: http://localhost:3500/api-explorer/
+
 
 ## Install Dependencies
 
