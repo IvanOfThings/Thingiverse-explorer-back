@@ -1,5 +1,5 @@
 /*=========================================
-There is no Tests to do, We need a valid token o code to test the API
+We do not do any test as the project is small and there is no more time but maybe I'll add them in future days
 
 import 'mocha';
 import { expect } from 'chai';
