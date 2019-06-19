@@ -7,6 +7,8 @@ servers:
 - url: /api/v1
 - url: /graphql
 tags:
+- name: Examples
+  description: Simple example endpoints
 - name: Specification
   description: The swagger API specification
 paths:
