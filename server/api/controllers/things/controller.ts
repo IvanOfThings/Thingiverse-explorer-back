@@ -16,7 +16,7 @@ export class Controller {
       const { property } = req.params;
       L.debug('Getting Thing ');
 
-      const thing: Promise<any> = ThingsService.getThingFromThingiverse(access_token, req.params.id);
+      const thing: Promise<any> = ThingsService.getThingFromThingiverse(access_token, parseInt(req.params.id));
 
       thing.then(r => {
         if (r) {
